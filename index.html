@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project On OpenCV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue; /* Changed from bgcolor attribute to CSS */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: lavender;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .title {
+            color: red;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .project-title {
+            font-size: 28px;
+            margin: 10px 0;
+            color: #333; /* Darker color for project title */
+        }
+        .names {
+            font-size: 20px;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .name-box {
+            border: 2px solid #333;
+            padding: 10px;
+            margin: 5px;
+            width: 250px; /* Adjust width as needed */
+            text-align: center;
+           
+        }
+        .supervisor {
+            font-size: 18px;
+            margin-top: 20px; /* Adjusted margin */
+            display: flex;
+            justify-content: space-between;
+        }
+        .supervisor.left, .supervisor.right {
+            width: 45%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center; /* Align text left */
+        }
+        .supervisor.left {
+            color: blue; /* Color for left supervisor */
+        }
+        .supervisor.right {
+            color: green; /* Color for right supervisor */
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+
+        <h1>SJB INSTITUTE OF TECHNOLOGY</h1>
+        <p>No.67, BGS Health & Education City, Dr.Vishnuvardhan Rd, Kengeri, Bengaluru, Karnataka 560060</p>
+        <p>An Autonomous Institute under VTU</p>
+        <p>Approved by AICTE - New Delhi, Accredited by NAAC A+, Accredited by NBA</p>
+
+        <div class="title">A Mini Project On</div>
+        <div class="project-title">“OBJECT COUNTER USING OPENCV”</div>
+
+        <div class="names">
+            <div class="name-box" style="background-color:teal; color:white;">SHREYA M V [1JB21CS141]</div>
+            <div class="name-box" style="background-color:teal; color:white;">SHARANYA K [1JB21CS136]</div>
+        </div>
+       
+            <div style="color:black; text-align:center"><h3>Under the Guidance of </h3></div>
+        <div class="supervisor">
+            <div class="supervisor left">
+                <div style="color: blue;"></div>
+                <div>Dr. Bindiya M K</div>
+                <div>Professor,</div>
+                <div>Dept. of CSE, SJBIT</div>
+            </div>
+        
+            <div class="supervisor right">
+                <div style="color: green;"></div>
+                <div>Dr. Roopa M J</div>
+                <div>Associate Professor,</div>
+                <div>Dept. of CSE, SJBIT</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <button id="runButton">OBJECT COUNTER</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const runButton = document.getElementById('runButton');
+
+            runButton.addEventListener('click', function() {
+                fetch('http://localhost:5000/run-script', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => alert(data.output))  // Display the output from the server
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>
